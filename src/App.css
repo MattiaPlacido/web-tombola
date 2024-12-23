@@ -1,0 +1,22 @@
+/* DETTAGLI */
+.main-container {
+  max-width: 1300px;
+}
+
+.extracted-number-container {
+  width: 75px;
+  height: 75px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  background-color: #148f81;
+}
+
+/* RESET */
+hr {
+  color: white;
+}
