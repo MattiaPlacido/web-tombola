@@ -1,11 +1,17 @@
 import style from "./components.module.css";
 import { useNumberContext } from "../contexts/NumbersContext";
+import { usePlayerContext } from "../contexts/PlayerContext";
 import { useState } from "react";
 
 export default function ExtractionWindow() {
+  //contesto numeri estratti
   const { functions, numbersData } = useNumberContext();
   const { nMax, extractedNumbers } = numbersData;
   const { addToExtractedNumbers } = functions;
+
+  //contesto partita / punteggio player
+  const { playerScore } = usePlayerContext();
+
   const [lastExtractedNumber, setLastExtractedNumber] = useState();
 
   const drawRandomNumber = () => Math.floor(Math.random() * nMax) + 1;
@@ -17,6 +23,15 @@ export default function ExtractionWindow() {
     }
     addToExtractedNumbers(randomNum);
     setLastExtractedNumber(randomNum);
+  };
+
+  const endButtonHandler = () => {
+    alert(
+      `Complimenti! Hai terminato la partita con ${playerScore} ${
+        playerScore != 1 ? "punti" : "punto"
+      }`
+    );
+    location.reload();
   };
 
   return (
@@ -35,6 +50,7 @@ export default function ExtractionWindow() {
         </button>
         <button
           className={`btn text-white bg-danger mb-3 border mx-auto border-dark border-2 ${style.end_game_button}`}
+          onClick={() => endButtonHandler()}
         >
           Termina
         </button>

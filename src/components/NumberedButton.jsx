@@ -1,19 +1,27 @@
 import { useState } from "react";
 import { useNumberContext } from "../contexts/NumbersContext";
+import { usePlayerContext } from "../contexts/PlayerContext";
 
 export default function NumberedButton(props) {
   const { number } = props;
   const [isButtonClicked, setIsButtonClicked] = useState(false);
+
+  //contesto numeri
   const { numbersData } = useNumberContext();
   const { extractedNumbers } = numbersData;
+  //contesto punteggio
+  const { playerFunctions } = usePlayerContext();
+  const { incrementPlayerScore, decrementPlayerScore } = playerFunctions;
 
   //funzioni
   const buttonClickHandler = () => {
     if (isButtonClicked) {
       setIsButtonClicked(false);
+      decrementPlayerScore();
     } else {
       if (extractedNumbers.includes(number)) {
         setIsButtonClicked(true);
+        incrementPlayerScore();
       } else {
         alert(`Il ${number} non è stato ancora estratto.`);
       }
