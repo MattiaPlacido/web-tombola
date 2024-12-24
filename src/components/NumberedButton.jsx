@@ -1,12 +1,23 @@
 import { useState } from "react";
+import { useNumberContext } from "../contexts/NumbersContext";
 
 export default function NumberedButton(props) {
   const { number } = props;
   const [isButtonClicked, setIsButtonClicked] = useState(false);
+  const { extractedNumbers } = useNumberContext();
 
   //funzioni
-  const buttonClickHandler = () =>
-    isButtonClicked ? setIsButtonClicked(false) : setIsButtonClicked(true);
+  const buttonClickHandler = () => {
+    if (isButtonClicked) {
+      setIsButtonClicked(false);
+    } else {
+      if (extractedNumbers.includes(number)) {
+        setIsButtonClicked(true);
+      } else {
+        alert(`${number} non è stato ancora estratto.`);
+      }
+    }
+  };
 
   return (
     <button
