@@ -1,14 +1,14 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 import ExtractionWindow from "./components/ExtractionWindow";
 import ButtonList from "./components/ButtonList";
-import "./App.css";
 import { NumbersContextProvider } from "./contexts/NumbersContext";
 import { PlayerContextProvider } from "./contexts/PlayerContext";
 
 function App() {
   return (
-    <NumbersContextProvider>
-      <PlayerContextProvider>
+    <PlayerContextProvider>
+      <NumbersContextProvider>
         <div className="vh-100 wrapper">
           <p className="text-white h1 py-3 text-center title">Tomboola</p>
           <div className="justify-content-center align-items-center d-flex">
@@ -22,8 +22,8 @@ function App() {
             </div>
           </div>
         </div>
-      </PlayerContextProvider>
-    </NumbersContextProvider>
+      </NumbersContextProvider>
+    </PlayerContextProvider>
   );
 }
 

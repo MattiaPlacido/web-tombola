@@ -26,12 +26,17 @@ export default function ExtractionWindow() {
   };
 
   const endButtonHandler = () => {
-    alert(
-      `Complimenti! Hai terminato la partita con ${playerScore} ${
-        playerScore != 1 ? "punti" : "punto"
-      }`
-    );
-    location.reload();
+    if (playerScore >= Math.ceil(nMax / 6)) {
+      alert(
+        `Complimenti! Hai terminato la partita con ${playerScore} ${
+          playerScore != 1 ? "punti" : "punto"
+        }.
+        Numeri estratti : ${extractedNumbers.join(", ")}.`
+      );
+      location.reload();
+    } else {
+      alert("Non hai abbastanza punti per terminare la partita!");
+    }
   };
 
   return (
