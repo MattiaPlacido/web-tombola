@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import NumberedButton from "./components/NumberedButton";
+import ExtractionWindow from "./components/ExtractionWindow";
 import "./App.css";
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
 
   return (
     <div className="vh-100 wrapper">
-      <p className="text-white h1 py-3 text-center">Tomboola</p>
+      <p className="text-white h1 py-3 text-center title">Tomboola</p>
       <div className="justify-content-center align-items-center d-flex">
         <div className="main-container row">
           <div className="col-9 d-flex flex-wrap justify-content-center px-5">
@@ -18,11 +19,7 @@ function App() {
             ))}
           </div>
           <div className="col-3 text-center">
-            <p className="h5 mb-3 text-black">Ultimo numero estratto</p>
-            <p className="bg-white h2 text-black border border-black extracted-number-container">
-              77
-            </p>
-            <hr></hr>
+            <ExtractionWindow />
           </div>
         </div>
       </div>

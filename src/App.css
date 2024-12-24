@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap");
+
 /* DETTAGLI */
 .main-container {
   max-width: 1300px;
@@ -19,4 +21,9 @@
 /* RESET */
 hr {
   color: white;
+}
+
+.title {
+  font-family: "Gochi Hand", serif;
+  font-size: 4rem;
 }

@@ -1,0 +1,17 @@
+.extraction_button {
+  width: 100px;
+  opacity: 0.9;
+}
+
+.extraction_button:hover {
+  opacity: 1;
+}
+
+.end_game_button {
+  width: 170px;
+  opacity: 0.9;
+}
+
+.end_game_button:hover {
+  opacity: 1;
+}
