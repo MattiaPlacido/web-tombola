@@ -6,10 +6,18 @@ const NumberContext = createContext();
 export const NumbersContextProvider = ({ children }) => {
   const [extractedNumbers, setExtractedNumbers] = useState([]);
 
+  const nMax = 90;
+
   const addToExtractedNumbers = (n) => {
     const newList = extractedNumbers;
     newList.push(n);
     setExtractedNumbers(newList);
+    console.log(extractedNumbers);
+  };
+
+  const numbersData = {
+    extractedNumbers,
+    nMax,
   };
 
   const functions = {
@@ -17,7 +25,7 @@ export const NumbersContextProvider = ({ children }) => {
   };
 
   return (
-    <NumberContext.Provider value={{ functions, extractedNumbers }}>
+    <NumberContext.Provider value={{ functions, numbersData }}>
       {children}
     </NumberContext.Provider>
   );
