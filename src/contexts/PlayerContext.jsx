@@ -4,6 +4,7 @@ import { useState } from "react";
 const PlayerContext = createContext();
 
 export const PlayerContextProvider = ({ children }) => {
+  const [playerNumber, setPlayerNumber] = useState(1);
   const [playerScore, setPlayerScore] = useState(0);
 
   const incrementPlayerScore = () => setPlayerScore(playerScore + 1);
@@ -15,7 +16,9 @@ export const PlayerContextProvider = ({ children }) => {
   };
 
   return (
-    <PlayerContext.Provider value={{ playerFunctions, playerScore }}>
+    <PlayerContext.Provider
+      value={{ playerFunctions, playerScore, setPlayerNumber }}
+    >
       {children}
     </PlayerContext.Provider>
   );

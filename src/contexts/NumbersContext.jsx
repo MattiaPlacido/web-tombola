@@ -5,14 +5,13 @@ import { usePlayerContext } from "./PlayerContext";
 const NumberContext = createContext();
 
 export const NumbersContextProvider = ({ children }) => {
+  const [boxesNumber, setBoxesNumber] = useState(90);
   const [extractedNumbers, setExtractedNumbers] = useState([]);
   const { playerScore } = usePlayerContext();
 
-  const nMax = 90;
-
   useEffect(() => {
     console.log(extractedNumbers.length);
-    if (extractedNumbers.length == nMax) {
+    if (extractedNumbers.length == boxesNumber) {
       alert(
         `Sono stati estratti tutti i numeri, la partita è terminata ed il tuo punteggio è ${playerScore}.`
       );
@@ -29,7 +28,7 @@ export const NumbersContextProvider = ({ children }) => {
 
   const numbersData = {
     extractedNumbers,
-    nMax,
+    boxesNumber,
   };
 
   const functions = {
@@ -37,7 +36,7 @@ export const NumbersContextProvider = ({ children }) => {
   };
 
   return (
-    <NumberContext.Provider value={{ functions, numbersData }}>
+    <NumberContext.Provider value={{ functions, numbersData, setBoxesNumber }}>
       {children}
     </NumberContext.Provider>
   );
