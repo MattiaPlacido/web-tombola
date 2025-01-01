@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { usePlayerContext } from "../contexts/PlayerContext";
 import { useNumberContext } from "../contexts/NumbersContext";
 
@@ -10,11 +10,13 @@ export default function FormOnStart({ handleLoading }) {
   const { setBoxesNumber: setBoxesNumberContext } = useNumberContext();
 
   const handlePlayerSelectChange = (e) => {
-    setPlayerNumber(e.target.value);
-    playerNumber !== 1 ? setBoxesNumber(10) : setBoxesNumber(90);
+    setPlayerNumber(parseInt(e.target.value));
+    e.target.value !== 1 ? setBoxesNumber(10) : setBoxesNumber(90);
   };
 
-  const handleBoxesSelectChange = (e) => setBoxesNumber(e.target.value);
+  const handleBoxesSelectChange = (e) => {
+    setBoxesNumber(parseInt(e.target.value));
+  };
 
   const handleButtonSubmit = () => {
     setPlayerNumberContext(playerNumber);

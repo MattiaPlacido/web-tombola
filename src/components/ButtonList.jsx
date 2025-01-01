@@ -3,8 +3,8 @@ import NumberedButton from "../components/NumberedButton";
 
 export default function ButtonList() {
   const { numbersData } = useNumberContext();
-  const { nMax } = numbersData;
-  const buttons = Array(nMax).fill(null);
+  const { boxesNumber } = numbersData;
+  const buttons = Array(boxesNumber).fill(null);
 
   return (
     <>

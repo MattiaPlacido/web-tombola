@@ -10,7 +10,6 @@ export const NumbersContextProvider = ({ children }) => {
   const { playerScore } = usePlayerContext();
 
   useEffect(() => {
-    console.log(extractedNumbers.length);
     if (extractedNumbers.length == boxesNumber) {
       alert(
         `Sono stati estratti tutti i numeri, la partita è terminata ed il tuo punteggio è ${playerScore}.`

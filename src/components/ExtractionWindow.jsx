@@ -6,7 +6,7 @@ import { useState } from "react";
 export default function ExtractionWindow() {
   //contesto numeri estratti
   const { functions, numbersData } = useNumberContext();
-  const { nMax, extractedNumbers } = numbersData;
+  const { boxesNumber, extractedNumbers } = numbersData;
   const { addToExtractedNumbers } = functions;
 
   //contesto partita / punteggio player
@@ -14,7 +14,7 @@ export default function ExtractionWindow() {
 
   const [lastExtractedNumber, setLastExtractedNumber] = useState();
 
-  const drawRandomNumber = () => Math.floor(Math.random() * nMax) + 1;
+  const drawRandomNumber = () => Math.floor(Math.random() * boxesNumber) + 1;
 
   const extractionButtonHandler = () => {
     let randomNum = drawRandomNumber();
@@ -26,7 +26,7 @@ export default function ExtractionWindow() {
   };
 
   const endButtonHandler = () => {
-    if (playerScore >= Math.ceil(nMax / 6)) {
+    if (playerScore >= Math.ceil(boxesNumber / 6)) {
       alert(
         `Complimenti! Hai terminato la partita con ${playerScore} ${
           playerScore != 1 ? "punti" : "punto"
