@@ -22,9 +22,9 @@ function App() {
         {isLoading ? (
           <FormOnStart handleLoading={handleLoading} />
         ) : (
-          <div className={`vh-100 wrapper`}>
-            <p className="text-white h1 py-3 text-center title">Tomboola</p>
-            <div className="justify-content-center align-items-center d-flex">
+          <div className={`wrapper`}>
+            <p className="text-white h1 py-4 text-center title">Tomboola</p>
+            <div className="justify-content-center align-items-center d-flex pb-3">
               <div className="main-container row">
                 <div className="col-9 d-flex flex-wrap justify-content-center px-5">
                   <ButtonList />

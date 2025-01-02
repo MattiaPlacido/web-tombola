@@ -17,7 +17,7 @@ export const PlayerContextProvider = ({ children }) => {
 
   return (
     <PlayerContext.Provider
-      value={{ playerFunctions, playerScore, setPlayerNumber }}
+      value={{ playerFunctions, playerScore, setPlayerNumber, playerNumber }}
     >
       {children}
     </PlayerContext.Provider>

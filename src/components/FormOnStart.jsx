@@ -20,7 +20,10 @@ export default function FormOnStart({ handleLoading }) {
 
   const handleButtonSubmit = () => {
     setPlayerNumberContext(playerNumber);
-    setBoxesNumberContext(boxesNumber);
+
+    if (playerNumber === 1) setBoxesNumberContext(boxesNumber);
+    else setBoxesNumberContext(boxesNumber * playerNumber);
+
     handleLoading();
   };
 
