@@ -22,29 +22,33 @@ export default function ButtonList() {
     <>
       {playerNumber === 1 ? (
         buttons.map((_, index) => (
-          <NumberedButton key={index} number={index + 1} />
+          <NumberedButton playerId={0} key={index} number={index + 1} />
         ))
       ) : (
         <div className="container">
           <div className="row">
-            {playerList.map((player) => (
-              <div className="col-6" key={player}>
-                <div className="text-center">
-                  <h3 className="text-white">{player}</h3>
-                  <div className="d-flex flex-wrap justify-content-center">
-                    {buttons.map((_, index) => {
-                      totalIndex++;
-                      return (
-                        <NumberedButton
-                          key={player + index}
-                          number={totalIndex}
-                        />
-                      );
-                    })}
+            {playerList.map((player, index) => {
+              const playerIndex = index;
+              return (
+                <div className="col-6" key={player}>
+                  <div className="text-center">
+                    <h3 className="text-white">{player}</h3>
+                    <div className="d-flex flex-wrap justify-content-center">
+                      {buttons.map((_, index) => {
+                        totalIndex++;
+                        return (
+                          <NumberedButton
+                            key={player + index}
+                            number={totalIndex}
+                            playerId={playerIndex}
+                          />
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       )}

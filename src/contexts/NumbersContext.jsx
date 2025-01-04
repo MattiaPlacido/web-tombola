@@ -12,7 +12,9 @@ export const NumbersContextProvider = ({ children }) => {
   useEffect(() => {
     if (extractedNumbers.length == boxesNumber) {
       alert(
-        `Sono stati estratti tutti i numeri, la partita è terminata ed il tuo punteggio è ${playerScore}.`
+        `Sono stati estratti tutti i numeri, la partita è terminata ed i punteggi sono: ${playerScore
+          .map((score, index) => `Giocatore ${index + 1}: ${score}`)
+          .join(", ")}.`
       );
       location.reload();
     }
