@@ -26,11 +26,17 @@ export default function ExtractionWindow() {
   };
 
   const endButtonHandler = () => {
-    if (playerScore >= Math.ceil(boxesNumber / 6)) {
+    let totalPlayerScore = 0;
+    playerScore.forEach((score) => (totalPlayerScore += score));
+
+    if (totalPlayerScore >= Math.ceil(boxesNumber / 6)) {
       alert(
-        `Complimenti! Hai terminato la partita con ${playerScore} ${
-          playerScore != 1 ? "punti" : "punto"
-        }.
+        `Complimenti! Hai terminato la partita!
+
+        ${playerScore
+          .map((score, index) => `Giocatore ${index + 1}: ${score} punti`)
+          .join(", ")}. 
+
         Numeri estratti : ${extractedNumbers.join(", ")}.`
       );
       location.reload();
